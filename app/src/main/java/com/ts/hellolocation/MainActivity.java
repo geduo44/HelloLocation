@@ -82,15 +82,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String[] needRequestPermission = new String[permissionRequestList.size()];
                 permissionRequestList.toArray(needRequestPermission);
 
-                boolean refuse = ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_FINE_LOCATION);
-                Log.d(TAG, ACCESS_FINE_LOCATION + " shouldShowRequestPermissionRationale :" + refuse);
-                if (refuse) {
+                boolean refuseCoarse = ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_COARSE_LOCATION);
+                Log.d(TAG, ACCESS_COARSE_LOCATION + " shouldShowRequestPermissionRationale :" + refuseCoarse);
+
+                boolean refuseFine = ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_FINE_LOCATION);
+                Log.d(TAG, ACCESS_FINE_LOCATION + " shouldShowRequestPermissionRationale :" + refuseFine);
+                if (refuseFine) {
                     Toast.makeText(MainActivity.this.getApplicationContext(),
                             ACCESS_FINE_LOCATION + this.getString(R.string.permission_deny), Toast.LENGTH_LONG).show();
                 }
 
                 Log.e(TAG, "Request permission : " + Arrays.toString(needRequestPermission));
+                // 申请fine的权限时，也会同时申请coarse的权限，不能给用户单一选择
                 ActivityCompat.requestPermissions(this, needRequestPermission, REQUEST_CODE);
+                //ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, REQUEST_CODE);
             }
         } else {
             Log.d(TAG, "oops");
