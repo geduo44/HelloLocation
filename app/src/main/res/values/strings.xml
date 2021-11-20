@@ -3,5 +3,6 @@
     <string name="weather_request">天气需要查询粗略地理位置</string>
     <string name="address_request">住址需要查询精确地理位置</string>
     <string name="permission_grant">地理权限已经授予</string>
-    <string name="permission_deny"> 如果不被授予，那么可能无法使用此功能</string>
+    <string name="permission_deny"> 如果不被授予，应用的功能可能无法正常使用</string>
+    <string name="ok">OK</string>
 </resources>
