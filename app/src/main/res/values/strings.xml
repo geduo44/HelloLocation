@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloLocation</string>
+    <string name="weather_request">天气需要查询粗略地理位置</string>
+    <string name="address_request">住址需要查询精确地理位置</string>
+    <string name="permission_grant">地理权限已经授予</string>
+    <string name="permission_deny"> 如果不被授予，那么可能无法使用此功能</string>
+</resources>
