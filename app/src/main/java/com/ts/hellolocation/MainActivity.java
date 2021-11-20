@@ -16,7 +16,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View button) {
         if (button.getId() == R.id.weather) {
             boolean coarseStatus =
-                    PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION);
+                    PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION);
             if (coarseStatus) {
                 Toast.makeText(this, R.string.permission_grant, Toast.LENGTH_LONG).show();
             } else {
@@ -77,9 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else if (button.getId() == R.id.address) {
             boolean coarseStatus =
-                    PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION);
+                    PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION);
             boolean fineStatus =
-                    PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION);
+                    PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION);
             if (coarseStatus && fineStatus) {
                 Toast.makeText(MainActivity.this.getApplicationContext(),
                         R.string.permission_grant, Toast.LENGTH_LONG).show();
